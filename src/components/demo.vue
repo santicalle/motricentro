@@ -135,6 +135,8 @@
             ['Tijeras', 9] // Below limit.
         ]);
 
+        
+
         var optionsThreshold = {
             title: 'Ingresos de Herramientas',
             //sliceVisibilityThreshold: .1,
