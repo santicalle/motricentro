@@ -131,11 +131,9 @@
             ['Pala', 33],
             ['Martillo', 26],
             ['Pico', 22],
-            ['Taladro', 10], // Below limit.
-            ['Tijeras', 9] // Below limit.
-        ]);
-
-        
+            ['Taladro', 10],
+            ['Tijeras', 9]
+        ]);  
 
         var optionsThreshold = {
             title: 'Ingresos de Herramientas',

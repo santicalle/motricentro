@@ -5,7 +5,7 @@ import demo from '@/components/demo'
 import detalle_herramienta from '@/components/herramientas/detalle_herramienta'
 import login from '@/components/login/login'
 import factura_compra from '@/components/factura_compra/factura_compra'
-
+import ganado from '@/components/ganado/ganado'
 
 
 Vue.use(Router)
@@ -31,6 +31,11 @@ export default new Router({
       path: '/factura_compra',
       name: 'factura_compra',
       component: factura_compra
+    },
+    {
+      path: '/ganado',
+      name: 'ganado',
+      component: ganado
     }
   ]
 })

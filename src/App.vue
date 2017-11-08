@@ -115,6 +115,13 @@
                             <span class="pcoded-mcaret"></span>
                           </router-link>
                         </li>
+                        <li>
+                          <router-link :to="{ name: 'ganado', params: {} }">
+                            <span class="pcoded-micon"><i class="fa fa-paw"></i></span>
+                            <span class="pcoded-mtext">Detalle Ganado</span>
+                            <span class="pcoded-mcaret"></span>
+                          </router-link>
+                        </li>
                       </ul>
                     </nav>
 
