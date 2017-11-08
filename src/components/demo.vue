@@ -59,23 +59,99 @@
                 </div>
               </div>
 
-            </div>
+            </div>            
 
           </div>
         </div>
       </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>GASTOS DE COMPRAS</h5>
+                    <span>Estadística de los gastos de compras del presente año ( 2017 )</span>
+                </div>
+                <div class="card-block">
+                    <div id="chart_Combo" style="width: 100%; height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>INGRESO DE HERRAMIENTAS</h5>
+                    <span>Estadística de los ingresos de éste mes ( Noviembre 2017 )</span>
+                </div>
+                <div class="card-block">
+                    <div id="chart_Threshold" style="width: 100%; height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   </div>
 
 </template>
 
-<script>
+<script>  
   export default {
     name: 'main',
     data () {
       return {
         msg: 'Esta es la demo'
       }
-    }
+    },
+    methods: {
+      drawVisualization: function(){
+         // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+            ['Month', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre'],
+            ['2017', 165, 300, 522, 998, 450, 614.6, 566, 780, 159.25, 1547, 25]
+        ]);
+
+        var options = {
+            title: 'Gastos de Compras',
+            vAxis: { title: 'Valor' },
+            hAxis: { title: 'Meses' },
+            seriesType: 'bars',
+            series: { 2: { type: 'line' } },
+            colors: ['#2ecc71', '#01C0C8', '#FB9678', '#5faee3', '#f4d03f', '#e74c3c']
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_Combo'));
+        chart.draw(data, options);
+      },
+      drawChartThreshold: function(){
+        var dataThreshold = new google.visualization.DataTable();
+        dataThreshold.addColumn('string', 'Pizza');
+        dataThreshold.addColumn('number', 'Populartiy');
+        dataThreshold.addRows([
+            ['Pala', 33],
+            ['Martillo', 26],
+            ['Pico', 22],
+            ['Taladro', 10], // Below limit.
+            ['Tijeras', 9] // Below limit.
+        ]);
+
+        var optionsThreshold = {
+            title: 'Ingresos de Herramientas',
+            //sliceVisibilityThreshold: .1,
+            colors: ['#2ecc71', '#01C0C8', '#FB9678', '#5faee3', '#F4D03F']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_Threshold'));
+        chart.draw(dataThreshold, optionsThreshold);
+      }
+    },
+    mounted () {
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(this.drawVisualization);
+      
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(this.drawChartThreshold);
+    },
   }
+
 </script>

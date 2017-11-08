@@ -265,15 +265,15 @@ $(document).ready(function() {
         dataThreshold.addColumn('string', 'Pizza');
         dataThreshold.addColumn('number', 'Populartiy');
         dataThreshold.addRows([
-            ['Pepperoni', 33],
-            ['Hawaiian', 26],
-            ['Mushroom', 22],
-            ['Sausage', 10], // Below limit.
-            ['Anchovies', 9] // Below limit.
+            ['Pala', 33],
+            ['Martillo', 26],
+            ['Pico', 22],
+            ['Taladro', 10], // Below limit.
+            ['Tijeras', 9] // Below limit.
         ]);
 
         var optionsThreshold = {
-            title: 'Popularity of Types of Pizza',
+            title: 'Ingresos de Herramientas',
             sliceVisibilityThreshold: .2,
             colors: ['#2ecc71', '#01C0C8', '#FB9678', '#5faee3']
         };

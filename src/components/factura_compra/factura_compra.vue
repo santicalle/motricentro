@@ -72,9 +72,9 @@
           <table class="table  invoice-detail-table">
             <thead>
               <tr class="thead-default">
-                <th>Description</th>
-                <th>Quantity</th>
-                <th>Amount</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Monto</th>
                 <th>Total</th>
               </tr>
             </thead>
@@ -137,7 +137,7 @@
           </tbody>
         </table>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
 </template>
