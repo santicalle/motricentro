@@ -37,10 +37,9 @@
             </div>
             <div class="col-lg-7 col-xs-12 product-detail" id="product-detail">             
               <div class="row">                      
-                <div class="col-lg-12 col-xs-12" style="text-align: center;">
-                  <h6 style="width: 100%;">PRODUCCIÓN ANUAL</h6>
+                <div class="col-lg-12 col-xs-12" style="text-align: center;">                  
                   <br>
-                  <div id="line_top_x"></div>
+                  <div id="line_top_x" class="chart"></div>
                 </div>                
               </div>
             </div>
@@ -96,27 +95,31 @@
           ['Diciembre',  20,  0]
         ]);
 
-        var options = {
-          chart: {
-            
-          },
-          width: 600,
-          height: 200,                    
-          axes: {
-            x: {
-              0: {side: 'top'}
-            }
-          }
+        var options = {                
+          hAxis: {
+          title: 'Mes'
+	        },
+	        vAxis: {
+	          title: 'Litros'
+	        },
+	        'legend' : 'bottom',
+	        'title' : 'PRODUCCIÓN ANUAL',
         };
 
-        var chart = new google.charts.Line(document.getElementById('line_top_x'));
+        var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
 
-        chart.draw(data, google.charts.Line.convertOptions(options));
+        chart.draw(data, options);
       }
     },
     mounted () {
-      google.charts.load('current', {'packages':['line']});
-      google.charts.setOnLoadCallback(this.drawChart);
+      google.charts.load('current', {packages: ['corechart', 'line']});
+			google.charts.setOnLoadCallback(this.drawChart);
     },
   }
 </script>
+<style type="text/css">
+	.chart {
+	  width: 100%; 
+	  min-height: 300px;
+	}
+</style>
